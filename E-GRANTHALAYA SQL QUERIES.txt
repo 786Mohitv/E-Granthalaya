@@ -1,0 +1,44 @@
+create database mohit;
+use mohit;
+create table pubconsole (publisher_id int primary key,
+name varchar(50) not null,
+address varchar(100) not null,
+phone_no varchar(12) ,
+landline_no varchar(12),
+date date);
+
+
+create table member (id int primary key,
+name varchar(50) not null,
+address varchar(100) not null,
+phone_no varchar(12),
+membership varchar(30) not null,
+fee int,
+date date );
+
+
+create table books (no int primary key,
+title varchar(50) not null,
+author varchar(100) not null,
+page int not null,
+edition varchar(50) not null,
+price int not null,
+date date );
+
+create table issue(mem_id int not null,
+aid int not null,
+issuedt date not null);
+alter table issue add foreign key(mem_id) references member(id);
+alter table issue add foreign key(aid) references books(no);
+
+create table manage (no int primary key,
+title varchar(50) not null,
+author varchar(100) not null,
+page int not null,
+edition varchar(30) not null,
+price int not null,
+date date);
+
+create table issue1(mem_id int not null,
+aid int not null,
+issuedt date not null);
